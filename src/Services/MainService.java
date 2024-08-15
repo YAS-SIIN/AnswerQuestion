@@ -48,7 +48,7 @@ public class MainService {
 
 
         for (String answer : rawAnswers) {
-            if (!answer.isEmpty() && answer.length() <= 255) {
+            if (!answer.trim().isEmpty() && answer.length() <= 255) {
                 questionAnswer.getAnswers().add(answer);
             } else if (answer.length() > 255) {
                 System.out.println("An answer exceeds the maximum allowed length of 255 characters.");
@@ -61,4 +61,27 @@ public class MainService {
     }
 
 
+    /**
+     * Get question with answer
+     * @param question the question string
+     */
+    public void getQuestion(String question) {
+        if (question.length() > 255) {
+            System.out.println("Question exceeds the maximum allowed length of 255 characters.");
+            return;
+        }
+
+        QuestionAnswer userQuestion = questionAnswers.stream()
+                .filter(qa -> qa.getQuestion().equals(question))
+                .findFirst()
+                .orElse(null);
+
+        if (userQuestion != null) {
+            for (String answer : userQuestion.getAnswers()) {
+                System.out.println("\n * " + answer);
+            }
+        } else {
+            System.out.println("The answer to life, universe and everything is 42");
+        }
+    }
 }

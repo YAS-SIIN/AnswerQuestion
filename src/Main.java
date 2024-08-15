@@ -19,7 +19,7 @@ public class Main {
                     if (choice.equals("1")) {
                         System.out.println("Enter your question:");
                         String question = scanner.nextLine().trim();
-
+                        mainService.getQuestion(question);
                     } else if (choice.equals("2")) {
                         System.out.println("Enter your question and answers (e.g., What is Peters favorite food? \"Pizza\" \"Spaghetti\"):");
                         String questionAnswer = scanner.nextLine().trim();

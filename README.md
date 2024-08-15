@@ -43,7 +43,9 @@ Answers will be
  - Pizza
  - Spaghetti
  - Ice cream
- - Asking a question which is not in the system:
+
+Asking a question which is not in the system:
+
 When is Peters birthday?
 Answer will be
  - the answer to life, universe and everything is 42

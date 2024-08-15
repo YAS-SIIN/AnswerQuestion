@@ -1,4 +1,6 @@
 package services;
+import models.QuestionAnswer;
+
 import java.util.*;
 public class MainService {
 
@@ -6,7 +8,7 @@ public class MainService {
 
     public MainService()
     {
-        questionAnswers = new List<QuestionAnswer>();
+        questionAnswers = new ArrayList<>();
     }
 
     /**

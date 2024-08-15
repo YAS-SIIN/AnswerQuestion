@@ -78,7 +78,7 @@ public class MainService {
 
         if (userQuestion != null) {
             for (String answer : userQuestion.getAnswers()) {
-                System.out.println("\n * " + answer);
+                System.out.println("\r * " + answer);
             }
         } else {
             System.out.println("The answer to life, universe and everything is 42");

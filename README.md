@@ -1,10 +1,10 @@
-# CGMGroupTask-Csharp
+# CGMGroupTask
 
-Language: Csharp
+Language: Java
 
  
 
-Write a Csharp console application that gives me two options. One to ask a specific question and the other option is to add questions and their answers
+Write a Java command line program that gives me two options. One to ask a specific question and the other option is to add questions and their answers
  
 
 Therefore the following restrictions apply:

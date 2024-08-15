@@ -31,29 +31,23 @@ public class MainService {
 
         String[] rawAnswers = parts[1].split("\"");
 
-        if (rawAnswers.length == 0) {
+        if (rawAnswers.length == 0 || parts[1].isEmpty()) {
             System.out.println("Every question must have at least one answer.");
             return;
-        }
-
-        List<String> answers = new ArrayList<>();
-        for (String answer : rawAnswers) {
-            if (!answer.trim().isEmpty()) {
-                answers.add(answer.trim());
-            }
         }
 
         QuestionAnswer questionAnswer = new QuestionAnswer();
         questionAnswer.setQuestion(question);
 
-        for (QuestionAnswer existing : questionAnswers) {
-            if (existing.getQuestion().equals(question)) {
-                questionAnswer = existing;
-                break;
-            }
-        }
+        questionAnswer = questionAnswers.stream()
+                .filter(qa -> qa.getQuestion().equals(question))
+                .findFirst()
+                .orElse(questionAnswer);
 
-        for (String answer : answers) {
+// Optional: Handle case where no match is found
+
+
+        for (String answer : rawAnswers) {
             if (!answer.isEmpty() && answer.length() <= 255) {
                 questionAnswer.getAnswers().add(answer);
             } else if (answer.length() > 255) {
@@ -65,5 +59,6 @@ public class MainService {
 
         System.out.println("Question added successfully!");
     }
+
 
 }
